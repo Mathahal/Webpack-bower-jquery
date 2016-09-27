@@ -3,10 +3,10 @@ var webpack = require('webpack'),
 
 module.exports = {
   entry: {
-    entry: path.join( __dirname, './entry.js' )
+    entry: path.join( __dirname, './assets/entry.js' )
   },
   output: {
-    path: __dirname,
+    path: path.join( __dirname, './build/' ),
     filename: 'build.js'
   },
   module: {

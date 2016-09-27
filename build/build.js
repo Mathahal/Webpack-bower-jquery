@@ -44,14 +44,84 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(1)
+	__webpack_require__(1)
+	// var $ = require("jquery")
 
-
-
-	console.log($("#test"))
+	// function Person() {
+	//   
+	//                    // どちらかに統一するようにしましょう。
+	//   this.age = 0;
+	// 
+	//   setInterval(function () {
+	//     // このコールバックは、期待されるオブジェクトの値を
+	//     // `self` 変数で参照します。
+	//     console.log(this.age++)
+	//     
+	//   }, 1000);
+	// }
+	// 
+	// new Person()
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _test = __webpack_require__(2);
+
+	console.log(_test.testtest);
+
+	var $ = __webpack_require__(3);
+
+	function Person() {
+	  var _this = this;
+
+	  this.age = 0;
+	  setInterval(function () {
+	    $(".test").each(function (a, b) {
+	      console.log($(b).text());
+	      console.log(_this.age);
+	    });
+	  }, 1000);
+	}
+
+	new Person();
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Test1 = function () {
+	  function Test1() {
+	    _classCallCheck(this, Test1);
+	  }
+
+	  _createClass(Test1, null, [{
+	    key: "aaa",
+	    value: function aaa() {
+	      console.log("aaaaaaaa");
+	    }
+	  }]);
+
+	  return Test1;
+	}();
+
+	exports.default = Test1;
+	var testtest = exports.testtest = "fewfaw";
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
