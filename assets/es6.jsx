@@ -2,7 +2,9 @@ import { Test1, testtest } from "./test.jsx"
 
 console.log(testtest)
 
-var $ = require("jquery")
+var $ = require("jquery"),
+    _ = require("underscore")
+
 
 function Person() {
   this.age = 0;

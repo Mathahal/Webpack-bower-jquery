@@ -1,4 +1,5 @@
 require('./es6.jsx')
+require('./style.sass')
 // var $ = require("jquery")
 
 // function Person() {

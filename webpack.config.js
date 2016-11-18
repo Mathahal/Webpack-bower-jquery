@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
-    path = require('path')
+    path = require('path'),
+    BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -14,7 +15,7 @@ module.exports = {
       {
         test: /\.sass$/,
         exclude: /(application|node_modules|bootstrap|public_html|.git)/,
-        loader: 'style!css!sass'
+        loader: 'style!css!sass?includePaths[]=' + path.resolve(__dirname, "./node_modules/compass-mixins/lib")
       },
       {
         test: /\.jsx$/,
@@ -32,6 +33,14 @@ module.exports = {
   plugins: [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
+    ),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:8888/',
+      files: ["./*.html", "./assets"]
+    },{
+      reload: true
+    })
   ]
 }
