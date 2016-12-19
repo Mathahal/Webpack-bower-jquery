@@ -36,6 +36,9 @@ module.exports = {
     root: [ path.join(__dirname, 'bower_components') ]
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { screw_ie8: true, warnings: false }
+    }),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ),
